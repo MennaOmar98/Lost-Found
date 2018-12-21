@@ -25,6 +25,17 @@ public class HomePage {
             return true;
         }
     }
+    
+    public boolean LogIn(Account account) {
+        boolean ForN = Acc_Serv.Log_In(account);
+        if (!ForN) {
+            return false;
+        } else {
+            account=Acc_Serv.Read(account);
+            Show_Home_Page(account);
+            return true;
+        }
+    }
 
     public void Show_Home_Page(Account account) {
         User_Account=account;
