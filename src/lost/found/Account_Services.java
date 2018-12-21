@@ -38,6 +38,21 @@ public class Account_Services {
             return false;
         }
     }
+    
+    public boolean Log_In(Account account) {
+        boolean check = false;
+        check = Acc_Model.Check(account);
+        if (check) {
+            return true;
+        } else 
+            return false;
+    }
+    
+    public Account Read(Account account)
+    {
+        Account acc=Acc_Model.Read(account);
+        return acc;
+    }
 
 //
 //    public boolean Update(Account Old, Account New) {

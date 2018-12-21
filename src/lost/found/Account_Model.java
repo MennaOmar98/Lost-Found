@@ -74,5 +74,19 @@ public class Account_Model {
             return false;
         }
     }
+    
+    public Account Read(Account account) {
+        String Query = "select * " + "from Accounts " + "where Email='" + account.get_Mail() + "' and pass='" + account.get_Password() + "'";
+        try {
+            resultSet = statement.executeQuery(Query);
+            while (resultSet.next()) {
+                account.set_Name(resultSet.getString("UserName"));
+                account.set_Age(resultSet.getInt("Age"));
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return account;
+    }
 
 }
