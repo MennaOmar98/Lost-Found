@@ -115,11 +115,13 @@ public class Home_Page extends javax.swing.JFrame {
 
     Posts_Interface P_I=new Posts_Interface(Account);
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+        new Browse_Posts(Account).setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-
+        new Post_Page(Account).setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -131,11 +133,13 @@ public class Home_Page extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-
+        new Browse_Lost_Items(Account).setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-
+        new Browse_Found_Items(Account).setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     public static void main(String args[]) {

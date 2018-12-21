@@ -5,6 +5,42 @@ import java.util.Vector;
 public class Post_Services {
 
     Post_Model Post_Model = new Post_Model();
+    
+    public Vector<Post> Browse_Posts(String Category) {
+        Vector<Post> posts = new Vector();
+        posts = Post_Model.Check(Category);
+        return posts;
+    }
+
+    public boolean Add_Post(Post post) {
+        boolean verify = Verify_Completness(post);
+        if (verify) {
+            Post_Model.Insert(post);
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public boolean Verify_Completness(Post post) {
+        if ((!post.Item.Category.isEmpty()) && (!post.Item.Place.isEmpty()) && (!post.Item.Description.isEmpty()) && (((post.Item.Status) || (!post.Item.Status)))) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public Vector<Post> Browse_Lost() {
+        Vector<Post> posts = new Vector();
+        posts = Post_Model.Check(false);
+        return posts;
+    }
+
+    public Vector<Post> Browse_Found() {
+        Vector<Post> posts = new Vector();
+        posts = Post_Model.Check(true);
+        return posts;
+    }
 
     public void Verify(Form form) {
 
