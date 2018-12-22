@@ -86,7 +86,16 @@ public class Posts_Interface {
         Vector<Post> posts = new Vector();
         posts = Post_Serv.Search_Posts(Place, Category);
         Print_Posts(posts, jTextArea1);
-    }  
+    } 
+    
+    public boolean Delete_Post(int Post_ID, Account Account) {
+        boolean Deleted = Post_Serv.Delete_Post(Post_ID, Account);
+        if (Deleted) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public void Verify() {
 
