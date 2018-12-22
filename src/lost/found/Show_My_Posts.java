@@ -107,7 +107,21 @@ public class Show_My_Posts extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
+        String postID = jTextField1.getText();
+        if (!postID.equals("")) {
+            int Post_ID = Integer.parseInt(postID);
+            boolean Deleted = P_UI.Delete_Post(Post_ID, Account);
+            if (Deleted) {
+                new Delete_Done(Account).setVisible(true);
+                this.setVisible(false);
+            } else {
+                new Delete_Error(Account).setVisible(true);
+                this.setVisible(false);
+            }
+        } else {
+            new Delete_Empty(Account).setVisible(true);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed

@@ -135,6 +135,32 @@ public class Post_Model {
         read_resultSet(posts);
         return posts;
     }
+    
+    public void Delete(int post_ID) {
+        String Query = "delete from Posts where Post_ID='" + post_ID + "'";;
+        try {
+            Connect.prepareStatement(Query).executeUpdate();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    public boolean Check(int Post_ID, Account account){
+        String Query = "select * " + "from Posts " + "where Post_ID='" + Post_ID + "' and User_Email='" + account.get_Mail() + "'";
+        boolean Excists = false;
+        try {
+            resultSet = statement.executeQuery(Query);
+            while (resultSet.next())
+                Excists = true;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        if (Excists) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public void Update(Post Old, Post New) {
 

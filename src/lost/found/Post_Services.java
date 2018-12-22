@@ -53,6 +53,15 @@ public class Post_Services {
         posts = Post_Model.Check(City, Category);
         return posts;
     }
+    
+    public boolean Delete_Post(int post_ID, Account account) {
+        if (Post_Model.Check(post_ID,account)){
+            Post_Model.Delete(post_ID);
+            return true;
+        }
+        else
+            return false;
+    }
 
     public void Verify(Form form) {
 
