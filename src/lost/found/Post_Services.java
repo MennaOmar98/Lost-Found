@@ -41,6 +41,18 @@ public class Post_Services {
         posts = Post_Model.Check(true);
         return posts;
     }
+    
+    public Vector<Post> Show_My_Posts(Account account) {
+        Vector<Post> posts = new Vector();
+        posts = Post_Model.Check(account);
+        return posts;
+    }
+    
+    public Vector<Post> Search_Posts(String City, String Category) {
+        Vector<Post> posts = new Vector();
+        posts = Post_Model.Check(City, Category);
+        return posts;
+    }
 
     public void Verify(Form form) {
 
