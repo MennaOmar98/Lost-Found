@@ -102,6 +102,39 @@ public class Post_Model {
         read_resultSet(posts);
         return posts;
     }
+    
+    public Vector<Post> Check(Account account) {
+        String Query = "select * " + "from Posts " + "where User_Email='" + account.get_Mail() + "'";
+        Vector<Post> posts = new Vector();
+        try {
+            resultSet = statement.executeQuery(Query);
+        } catch (SQLException ex) {
+            Logger.getLogger(Post_Model.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        read_resultSet(posts);
+        return posts;
+    }
+    
+    public Vector<Post> Check(String City, String Category) {
+        Vector<Post> posts = new Vector();
+        String Query;
+        if ((City.equals("All")) && (Category.equals("All"))) {
+            Query = "select * " + "from Posts ";
+        } else if (City.equals("All")) {
+            Query = "select * " + "from Posts " + "where Category='" + Category + "'";
+        } else if (Category.equals("All")) {
+            Query = "select * " + "from Posts " + "where Place='" + City + "'";
+        } else {
+            Query = "select * " + "from Posts " + "where Category='" + Category + "' and Place='" + City + "'";
+        }
+        try {
+            resultSet = statement.executeQuery(Query);
+        } catch (SQLException ex) {
+            Logger.getLogger(Post_Model.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        read_resultSet(posts);
+        return posts;
+    }
 
     public void Update(Post Old, Post New) {
 

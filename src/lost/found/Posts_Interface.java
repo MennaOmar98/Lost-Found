@@ -75,6 +75,18 @@ public class Posts_Interface {
         posts = Post_Serv.Browse_Found();
         Print_Posts(posts, jTextArea1);
     }
+    
+    public void Show_My_Posts(Account Account, javax.swing.JTextArea jTextArea1) throws SQLException {
+        Vector<Post> posts = new Vector();
+        posts = Post_Serv.Show_My_Posts(Account);
+        Print_Posts(posts, jTextArea1);
+    }
+        
+    public void Search(String Place, String Category, javax.swing.JTextArea jTextArea1) throws SQLException {
+        Vector<Post> posts = new Vector();
+        posts = Post_Serv.Search_Posts(Place, Category);
+        Print_Posts(posts, jTextArea1);
+    }  
 
     public void Verify() {
 
